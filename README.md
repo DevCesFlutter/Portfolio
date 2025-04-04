@@ -1,6 +1,6 @@
 # portafolio_web
 
-A new Flutter project.
+Proyecto enfocado en demostrar mi entusiasmo por la programacion y mostrar un portafolio web 
 
 ## Getting Started
 
