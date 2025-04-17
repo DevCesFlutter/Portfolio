@@ -1,16 +1,15 @@
 # portafolio_web
 
-Proyecto enfocado en demostrar mi entusiasmo por la programacion y mostrar un portafolio web 
+Proyecto Creado para mostrar de una forma mas visual mi experiencia como desarrolaldor
+aplicacion construida en flutter desplegada como una web app en Fire Base
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Si quieres corre esta aplicacion 
 
-A few resources to get you started if this is your first Flutter project:
+Flutter clean
+Flutter pub get
+Flutter run app 
+Flutter run 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
