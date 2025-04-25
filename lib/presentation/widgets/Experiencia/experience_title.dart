@@ -15,11 +15,9 @@ class ExperienceTitle extends StatelessWidget {
         textAlign: TextAlign.center,
         style: theme.textTheme.titleLarge?.copyWith(
           fontWeight: FontWeight.bold,
-          color: Colors.blueAccent,
+          color: Colors.cyanAccent,
           letterSpacing: 1.2,
-          shadows: const [
-            Shadow(color: Colors.black12, offset: Offset(1, 1), blurRadius: 2),
-          ],
+          shadows: const [Shadow(color: Colors.blue, blurRadius: 10)],
         ),
       ),
     );

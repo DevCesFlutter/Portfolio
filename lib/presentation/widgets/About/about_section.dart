@@ -10,11 +10,9 @@ class AboutSection extends StatefulWidget {
 }
 
 const String shortDescription =
-    '​Soy desarrollador de software con experiencia en Flutter, Kotlin y Java, especializado en aplicaciones móviles eficientes y con excelente experiencia de usuario. Me enfoco en soluciones escalables y de alto rendimiento, aplicando principios sólidos de desarrollo.';
-const String longDescription = '''
-Como desarrollador de software, me especializo en Flutter, Kotlin y Java para la creación de aplicaciones móviles innovadoras y de alto rendimiento. Mi enfoque se centra en diseñar
-soluciones escalables que brinden una experiencia de usuario excepcional, aplicando principios sólidos de desarrollo y mejores prácticas. Además, poseo habilidades en Cloud Computing y manejo de bases 
-de datos, lo que me permite ofrecer soluciones integrales y adaptadas a las necesidades del mercado actual ''';
+    'Desarrollador de software con experiencia en Flutter, Next.js y Tailwind CSS. Creo soluciones móviles y web modernas, escalables y centradas en la experiencia de usuario.';
+const String longDescription =
+    'Soy desarrollador de software con especialización en Flutter/Dart, Next.js, Tailwind CSS. Me enfoco en la creación de aplicaciones móviles y web innovadoras y de alto rendimiento. Diseño soluciones escalables con una experiencia de usuario excepcional, aplicando principios sólidos de desarrollo y buenas prácticas. Además, tengo experiencia en el modelado y la gestión de bases de datos, lo que me permite ofrecer soluciones integrales adaptadas a las necesidades del mercado actual.';
 
 class _AboutSectionState extends State<AboutSection>
     with SingleTickerProviderStateMixin {
@@ -53,24 +51,23 @@ class _AboutSectionState extends State<AboutSection>
                 padding: EdgeInsets.all(0.1.w),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(
-                    width: 2,
-                    color: Colors.transparent,
-                  ),
+                  border: Border.all(width: 2, color: Colors.transparent),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.lightBlue.withOpacity(
-                          0.5 + 0.5 * sin(_controller.value * 2 * pi)),
+                        0.5 + 0.5 * sin(_controller.value * 2 * pi),
+                      ),
                       blurRadius: 5,
                       blurStyle: BlurStyle.inner,
                       spreadRadius: 2,
-                    )
+                    ),
                   ],
                 ),
                 child: CircleAvatar(
                   radius: 6.w,
-                  backgroundImage:
-                      const AssetImage('assets/images/perfil.jpeg'),
+                  backgroundImage: const AssetImage(
+                    'assets/images/perfil.jpeg',
+                  ),
                 ),
               );
             },
@@ -100,7 +97,9 @@ class _AboutSectionState extends State<AboutSection>
               style: TextStyle(fontSize: 16.sp, color: theme.primaryColorLight),
             ),
             crossFadeState:
-                _isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                _isExpanded
+                    ? CrossFadeState.showSecond
+                    : CrossFadeState.showFirst,
             duration: const Duration(milliseconds: 300),
           ),
           // 🔽 Botón para expandir descripción

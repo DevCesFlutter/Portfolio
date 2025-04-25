@@ -7,14 +7,17 @@ class TecnologiasSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             'Tecnologías que domino',
             style: TextStyle(
-              fontSize: MediaQuery.of(context).size.width < 600 ? 20 : 24, // Ajustamos el tamaño del texto
+              fontSize:
+                  MediaQuery.of(context).size.width < 600
+                      ? 20
+                      : 24, // Ajustamos el tamaño del texto
               fontWeight: FontWeight.bold,
               color: Colors.cyanAccent.shade200,
             ),
@@ -25,14 +28,15 @@ class TecnologiasSection extends StatelessWidget {
             child: LayoutBuilder(
               builder: (context, constraints) {
                 int columns = 4; // Número de columnas predeterminado
-            
+
                 if (constraints.maxWidth < 600) {
                   columns = 2; // Menos columnas en pantallas más pequeñas
                 } else if (constraints.maxWidth < 1000) {
                   columns = 3; // Tres columnas en tamaños medianos
                 }
-            
+
                 return GridView.count(
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   crossAxisCount: columns,
                   childAspectRatio: 1,
@@ -40,13 +44,14 @@ class TecnologiasSection extends StatelessWidget {
                   mainAxisSpacing: 5,
                   children: [
                     _buildTechItem(FontAwesomeIcons.flutter, 'Flutter'),
+                    _buildTechItem(FontAwesomeIcons.react, 'Next.js'),
                     _buildTechItem(FontAwesomeIcons.code, 'Dart'),
                     _buildTechItem(FontAwesomeIcons.database, 'SQL'),
-                    _buildTechItem(FontAwesomeIcons.git, 'Git'),
-                    _buildTechItem(FontAwesomeIcons.database, 'Firebase'),
                     _buildTechItem(FontAwesomeIcons.nodeJs, 'Node.js'),
-                    _buildTechItem(FontAwesomeIcons.html5, 'HTML/CSS/JS'),
-                    _buildTechItem(FontAwesomeIcons.android, 'Android'),
+                    _buildTechItem(FontAwesomeIcons.html5, 'HTML'),
+                    _buildTechItem(FontAwesomeIcons.css3Alt, 'Tailwind CSS'),
+                    _buildTechItem(FontAwesomeIcons.gitAlt, 'Git'),
+                    _buildTechItem(FontAwesomeIcons.fire, 'Firebase'),
                     _buildTechItem(FontAwesomeIcons.github, 'GitHub'),
                     _buildTechItem(FontAwesomeIcons.server, 'Supabase'),
                   ],
@@ -63,11 +68,7 @@ class TecnologiasSection extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
-          icon,
-          size: 40,
-          color: Colors.cyanAccent.shade200,
-        ),
+        Icon(icon, size: 40, color: Colors.cyanAccent.shade200),
         SizedBox(height: 10),
         Text(
           label,

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portafolio_web/presentation/widgets/comonn/gradient_divider.dart';
-import 'package:portafolio_web/presentation/widgets/contacto.dart';
+import 'package:portafolio_web/presentation/widgets/Contacto/contacto.dart';
 import 'package:portafolio_web/presentation/widgets/Experiencia/experiencia_section.dart';
-import 'package:portafolio_web/presentation/widgets/custom_appbar.dart';
-import 'package:portafolio_web/presentation/widgets/technologies_section.dart';
+import 'package:portafolio_web/presentation/widgets/Appbar/custom_appbar.dart';
+import 'package:portafolio_web/presentation/widgets/Tecnologias/technologies_section.dart';
 import 'package:sizer/sizer.dart';
-import '../widgets/about_section.dart';
+import '../widgets/About/about_section.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,22 +45,25 @@ class _HomePageState extends State<HomePage> {
 
     // Desplazarse a la sección correspondiente
     _scrollController.animateTo(
-      offset, // Aquí se utiliza un valor de desplazamiento ajustado
+      offset,
       duration: const Duration(seconds: 1), // Duración del desplazamiento
       curve: Curves.easeInOut, // Curva de animación
     );
   }
 
   // Función que obtiene la posición de la sección
-double _getSectionOffset(GlobalKey key) {
-  final RenderBox? renderBox = key.currentContext?.findRenderObject() as RenderBox?;
-  if (renderBox != null) {
-    final position = renderBox.localToGlobal(Offset.zero, ancestor: context.findRenderObject());
-    return _scrollController.offset + position.dy;
+  double _getSectionOffset(GlobalKey key) {
+    final RenderBox? renderBox =
+        key.currentContext?.findRenderObject() as RenderBox?;
+    if (renderBox != null) {
+      final position = renderBox.localToGlobal(
+        Offset.zero,
+        ancestor: context.findRenderObject(),
+      );
+      return _scrollController.offset + position.dy;
+    }
+    return 0.0;
   }
-  return 0.0;
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +71,8 @@ double _getSectionOffset(GlobalKey key) {
       builder: (context, orientation, deviceType) {
         return Scaffold(
           appBar: CustomAppBar(
-            onNavItemTapped: _scrollToSection, // Pasamos la función a CustomAppBar
+            onNavItemTapped:
+                _scrollToSection, // Pasamos la función a CustomAppBar
           ),
           body: SingleChildScrollView(
             controller: _scrollController, // Asociamos el ScrollController
@@ -88,7 +92,6 @@ double _getSectionOffset(GlobalKey key) {
                   GradientDivider(),
                   SizedBox(height: 15.h),
                   Contacto(key: _contactoKey),
-                  // Puedes agregar más secciones aquí de forma similar
                 ],
               ),
             ),

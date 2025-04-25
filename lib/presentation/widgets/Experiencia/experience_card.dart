@@ -8,9 +8,11 @@ class ExperienceCard extends StatelessWidget {
   final ExperienceItem experience;
   final bool showVideo;
 
-
-
-  const ExperienceCard({required this.experience,this.showVideo = false, super.key});
+  const ExperienceCard({
+    required this.experience,
+    this.showVideo = false,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +26,12 @@ class ExperienceCard extends StatelessWidget {
       shadowColor: Colors.blueAccent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: Colors.cyanAccent.shade400, width: 2.5),
+        side: BorderSide(color: Colors.cyanAccent.shade400, width: 5.5),
       ),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _buildTitle(textTheme, Colors.cyanAccent.shade400),
             const SizedBox(height: 16),
@@ -37,13 +39,15 @@ class ExperienceCard extends StatelessWidget {
             const SizedBox(height: 16),
             _buildDetailsButton(context),
             if (showVideo) ...[
-  const SizedBox(height: 24),
-  Center(child: const YoutubeVideoEmbed(videoId: 'CMa0XWFgvNE?si=V8bb-n8Jn2jul6nW')), // cambia por el ID real del video
-],
+              const SizedBox(height: 24),
+              Center(
+                child: const YoutubeVideoEmbed(
+                  videoId: 'CMa0XWFgvNE?si=V8bb-n8Jn2jul6nW',
+                ),
+              ), // cambia por el ID real del video
+            ],
             const SizedBox(height: 24),
             ExperienceImageCarousel(imagePaths: experience.imagePaths),
-            
-           
           ],
         ),
       ),
@@ -97,7 +101,9 @@ class ExperienceCard extends StatelessWidget {
             context: context,
             isScrollControlled: true,
             backgroundColor: Colors.transparent,
-            builder: (context) => FullScreenText(fullText: experience.fullDescription),
+            builder:
+                (context) =>
+                    FullScreenText(fullText: experience.fullDescription),
           );
         },
         icon: const Icon(Icons.visibility, color: Colors.black),

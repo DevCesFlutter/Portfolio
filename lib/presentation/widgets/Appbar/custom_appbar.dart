@@ -13,7 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        'Portafolio Web',
+        'Portafolio',
         style: TextStyle(
           fontSize: 2.w,
           fontWeight: FontWeight.bold,
@@ -50,7 +50,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           cursor: SystemMouseCursors.click,
           child: Row(
             children: [
-              Icon(icon, color: Colors.cyanAccent.shade200, size: 2.5.w),
+              Icon(icon, color: Colors.white, size: 2.5.w),
               SizedBox(width: 1.w),
               Text(
                 label,
