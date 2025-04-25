@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portafolio_web/fisicas/mousescroll.dart';
 import 'presentation/pages/home_page.dart';
 import 'core/theme.dart';
 
@@ -10,6 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+       
+      scrollBehavior: AppScrollBehavior(),
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
       theme: appTheme,

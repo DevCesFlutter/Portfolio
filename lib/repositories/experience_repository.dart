@@ -4,30 +4,42 @@ class ExperienceRepository {
   List<ExperienceItem> getExperiences() {
     return [
       ExperienceItem(
-        title: 'Desarrollador Flutter Freelance - Gestión de Inventario',
+        title:
+            'Desarrollador Multiplataforma Freelance - Gestión de Inventario',
         shortDescription:
-            'Desarrollo de aplicaciones móviles con Flutter para clientes independientes...',
-        fullDescription:
-            'Desarrollo de aplicaciones móviles con Flutter para clientes independientes. Creación de interfaces atractivas y optimizadas. '
-            'Desarrollo de una app de gestión de inventario y envíos para un cliente particular, utilizando Flutter y Firebase como tecnologías.',
+            'Aplicación multiplataforma desarrollada para un cliente emprendedor en Instagram, enfocada en la gestión de inventario y pedidos.',
+        fullDescription: '''
+Inventarius  
+Solución de software multiplataforma para la gestión de inventario y envíos
+
+Inventarius es una aplicación desarrollada como solución informática real para un cliente emprendedor, con el objetivo de optimizar la gestión de productos, controlar el stock disponible y llevar un seguimiento detallado de los envíos por realizar y los ya realizados.
+
+La aplicación fue construida utilizando Flutter para garantizar una experiencia fluida y coherente en múltiples plataformas (Android, iOS y Web), y Supabase como backend para el almacenamiento seguro de datos, autenticación y gestión en tiempo real de la información.
+
+El desarrollo se realizó siguiendo principios de arquitectura limpia y SOLID, organizando el proyecto en módulos reutilizables que facilitan su escalabilidad y mantenimiento. Además, se diseñó una interfaz moderna, responsiva y centrada en la experiencia del usuario, permitiendo un acceso ágil desde distintos dispositivos con una misma cuenta.
+
+Inventarius representa un proyecto funcional y profesional que resuelve una necesidad concreta de gestión logística, demostrando la capacidad de llevar una idea desde el diseño hasta una solución completamente operativa.
+''',
         imagePaths: [
-          'assets/images/inven1.jpg',
-          'assets/images/inven2.jpg',
-          'assets/images/inven3.jpg',
-          'assets/images/inven4.jpg',
-          'assets/images/inven5.jpg',
+          'assets/images/inven1.1.png',
+          'assets/images/inven.png',
+          'assets/images/inven1.2.png',
+          'assets/images/inven1.3.png',
+          'assets/images/inven1.4.png',
+          'assets/images/inven1.5.png',
+          'assets/images/inven1.6.png',
         ],
       ),
       ExperienceItem(
         title: 'Práctica Profesional - Turistik',
-        shortDescription: 'Desarrollador Flutter - Aplicación NPS Tótem',
-        fullDescription:
-            '''Se desarrolló una aplicación en Flutter para medir la satisfacción de los usuarios del parque Turistik, ubicado en el Cerro San Cristóbal. El proyecto consistió en crear una aplicación NPS (Net Promoter Score) Tótem, diseñada para ser implementada en tabletas ubicadas en distintas áreas del parque, como baños, teleférico, funicular, buses, cafetería, y parques de aventura para niños y adultos.
+        shortDescription: 'Desarrollo de una aplicación en Flutter para medir la satisfacción de los usuarios del parque Turistik, ubicado en el Cerro San Cristóbal. La app NPS (Net Promoter Score) Tótem permitía a los usuarios calificar su experiencia mediante emojis en tabletas ubicadas en diversas áreas del parque.',
+        fullDescription: '''
+Se desarrolló una aplicación en Flutter para medir la satisfacción de los usuarios del parque Turistik, ubicado en el Cerro San Cristóbal. El proyecto consistió en crear una aplicación NPS (Net Promoter Score) Tótem, diseñada para ser implementada en tabletas ubicadas en distintas áreas del parque, como baños, teleférico, funicular, buses, cafetería, y parques de aventura para niños y adultos.
 
 La aplicación permitió a los usuarios calificar su experiencia mediante emojis y colores, reflejando si su feedback era positivo, neutral o negativo. Las preguntas variaban según el servicio que se estaba evaluando en la tablet. Además, la aplicación estaba disponible en varios idiomas (español, inglés y portugués) y podía almacenar datos de manera offline, sincronizándolos cuando se recuperaba la conexión a internet.
 
-Se construyó una API en Node.js que conectaba con una base de datos administrada en SQL Server, permitiendo la gestión de la información recabada. Mi rol principal fue el desarrollo de la aplicación en Flutter, la cual creé de forma independiente, aunque colaboré con el equipo en la integración con la base de datos y en la recopilación de requisitos del cliente para la entrega final de la aplicación...
-        ''',
+Se construyó una API en Node.js que conectaba con una base de datos administrada en SQL Server, permitiendo la gestión de la información recabada. Mi rol principal fue el desarrollo de la aplicación en Flutter, la cual creé de forma independiente, aunque colaboré con el equipo en la integración con la base de datos y en la recopilación de requisitos del cliente para la entrega final de la aplicación.
+''',
         imagePaths: [
           'assets/images/turis1.png',
           'assets/images/turis2.png',
@@ -41,10 +53,10 @@ Se construyó una API en Node.js que conectaba con una base de datos administrad
 
       ExperienceItem(
         title: 'Práctica Laboral - Contraplano.cl Periódico Digital',
-        shortDescription: 'Administración y gestión de contenido digital',
+        shortDescription: 'Administración y gestión de contenido digitales en periodico digital redactar editar publicar ',
         fullDescription:
             '''Administrador de un sitio WordPress dirigido a noticias locales de la zona de Viña del Mar. Redactar y publicar noticias
-        actualizar redes sociales 
+        actualizar redes sociales  edicion de video edicion de imagenes,creacion de videos con IA
         edicion de imagenes''',
         imagePaths: [
           'assets/images/con3.PNG',

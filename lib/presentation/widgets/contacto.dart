@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart'; // Necesitas agregar esta dependencia en tu pubspec.yaml
 
 class Contacto extends StatefulWidget {
+  const Contacto({super.key});
+
   @override
   _ContactoState createState() => _ContactoState();
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:portafolio_web/presentation/widgets/comonn/gradient_divider.dart';
 import 'package:portafolio_web/presentation/widgets/contacto.dart';
-import 'package:portafolio_web/presentation/widgets/custom_appbar.dart';
 import 'package:portafolio_web/presentation/widgets/Experiencia/experiencia_section.dart';
+import 'package:portafolio_web/presentation/widgets/custom_appbar.dart';
 import 'package:portafolio_web/presentation/widgets/technologies_section.dart';
 import 'package:sizer/sizer.dart';
 import '../widgets/about_section.dart';
-// Importamos el nuevo widget
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,30 +18,28 @@ class _HomePageState extends State<HomePage> {
   // Creamos un ScrollController para manejar el desplazamiento
   final ScrollController _scrollController = ScrollController();
 
+  // GlobalKeys para acceder a las posiciones de las secciones
+  final GlobalKey _aboutKey = GlobalKey();
+  final GlobalKey _experienciaKey = GlobalKey();
+  final GlobalKey _tecnologiasKey = GlobalKey();
+  final GlobalKey _contactoKey = GlobalKey();
+
   // Método para desplazarse a una sección específica
   void _scrollToSection(int index) {
-    // Obtener la altura de la pantalla
-    double screenHeight = MediaQuery.of(context).size.height;
-
-    // Ajustamos el desplazamiento según el índice de la sección
+    // Dependiendo del índice, desplazarse a la sección correspondiente
     double offset = 0;
     switch (index) {
       case 1:
-        offset = 0; // Sobre mí
+        offset = _getSectionOffset(_aboutKey);
         break;
       case 2:
-        offset =
-            screenHeight; // Experiencia, por ejemplo, puede ser 1 pantalla de altura
+        offset = _getSectionOffset(_experienciaKey);
         break;
       case 3:
-        offset =
-            screenHeight *
-            3; // Tecnologías, ajustado como dos pantallas de altura
+        offset = _getSectionOffset(_tecnologiasKey);
         break;
       case 4:
-        offset =
-            screenHeight *
-            4; // Contacto, ajustado como tres pantallas de altura
+        offset = _getSectionOffset(_contactoKey);
         break;
     }
 
@@ -53,14 +51,24 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // Función que obtiene la posición de la sección
+double _getSectionOffset(GlobalKey key) {
+  final RenderBox? renderBox = key.currentContext?.findRenderObject() as RenderBox?;
+  if (renderBox != null) {
+    final position = renderBox.localToGlobal(Offset.zero, ancestor: context.findRenderObject());
+    return _scrollController.offset + position.dy;
+  }
+  return 0.0;
+}
+
+
   @override
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, deviceType) {
         return Scaffold(
           appBar: CustomAppBar(
-            onNavItemTapped:
-                _scrollToSection, // Pasamos la función a CustomAppBar
+            onNavItemTapped: _scrollToSection, // Pasamos la función a CustomAppBar
           ),
           body: SingleChildScrollView(
             controller: _scrollController, // Asociamos el ScrollController
@@ -69,17 +77,17 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(30.0),
               child: Column(
                 children: [
-                  AboutSection(),
+                  AboutSection(key: _aboutKey),
                   SizedBox(height: 20.h), // Espaciado entre secciones
-                  Divider(color: Colors.grey, thickness: 1), // Línea divisoria
+                  GradientDivider(), // Línea divisoria
                   SizedBox(height: 30.h), // Espaciado adicional
-                  ExperienciaSection(),
+                  ExperienciaSection(key: _experienciaKey),
                   SizedBox(height: 10.h),
-                  Divider(color: Colors.grey, thickness: 1), // Línea divisoria
-                  TecnologiasSection(),
-                  Divider(color: Colors.grey, thickness: 1),
+                  GradientDivider(), // Línea divisoria
+                  TecnologiasSection(key: _tecnologiasKey),
+                  GradientDivider(),
                   SizedBox(height: 15.h),
-                  Contacto(),
+                  Contacto(key: _contactoKey),
                   // Puedes agregar más secciones aquí de forma similar
                 ],
               ),

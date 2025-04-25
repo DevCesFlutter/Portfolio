@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portafolio_web/presentation/widgets/Experiencia/experiencia_section.dart';
+import 'package:portafolio_web/presentation/widgets/Experiencia/full_screen_imagen.dart';
+import 'package:sizer/sizer.dart';
 
 class ExperienceImageCarousel extends StatelessWidget {
   final List<String> imagePaths;
@@ -8,7 +9,7 @@ class ExperienceImageCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -19,7 +20,7 @@ class ExperienceImageCarousel extends StatelessWidget {
           children: [
             Icon(
               Icons.photo_library,
-              color: theme.colorScheme.secondary,
+              color: Colors.cyanAccent.shade400,
               size: 20,
             ),
             const SizedBox(width: 8),
@@ -28,7 +29,7 @@ class ExperienceImageCarousel extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: theme.colorScheme.secondary,
+                color: Colors.cyanAccent.shade400,
               ),
             ),
           ],
@@ -38,7 +39,8 @@ class ExperienceImageCarousel extends StatelessWidget {
 
         // Carrusel
         SizedBox(
-          height: 250,
+          height: 40.h,
+          width: 90.h,
           child: PageView.builder(
             itemCount: imagePaths.length,
             controller: PageController(viewportFraction: 0.85),
@@ -145,12 +147,12 @@ class ExperienceImageCarousel extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.swipe, size: 16, color: Colors.grey),
+          const Icon(Icons.swipe, size: 16, color: Colors.cyan),
           const SizedBox(width: 6),
           Text(
-            'Desliza para ver más imágenes',
+            'Haz click  deliza y\n para ver mas imagenes',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 14.sp,
               color: Colors.grey.shade600,
               fontStyle: FontStyle.italic,
             ),

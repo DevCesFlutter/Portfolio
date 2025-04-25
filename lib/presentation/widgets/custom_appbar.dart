@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Function(int) onNavItemTapped; // Función para manejar la navegación
+  final Function(int) onNavItemTapped;
 
   const CustomAppBar({super.key, required this.onNavItemTapped});
 
   @override
-  Size get preferredSize => Size.fromHeight(60); // Altura personalizada del AppBar
+  Size get preferredSize => const Size.fromHeight(60);
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +15,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         'Portafolio Web',
         style: TextStyle(
-          fontSize: 2.w, // Tamaño responsivo
-          fontWeight: FontWeight.normal,
-          color: Colors.white,
+          fontSize: 2.w,
+          fontWeight: FontWeight.bold,
+          color: Colors.cyanAccent.shade200,
+          shadows: [Shadow(color: Colors.blueAccent, blurRadius: 10)],
         ),
       ),
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.grey.shade900,
       elevation: 20,
-      shadowColor: Colors.black,
+      shadowColor: Colors.blueAccent,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
       ),
@@ -32,7 +33,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             _buildNavItem(Icons.person, "Sobre mí", 1),
             _buildNavItem(Icons.workspace_premium, "Experiencia", 2),
-            _buildNavItem(Icons.build, "Tecnologias", 3),
+            _buildNavItem(Icons.build, "Tecnologías", 3),
             _buildNavItem(Icons.contact_mail, "Contacto", 4),
           ],
         ),
@@ -42,16 +43,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   Widget _buildNavItem(IconData icon, String label, int index) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 2.w), // Espaciado responsivo
+      padding: EdgeInsets.symmetric(horizontal: 2.w),
       child: GestureDetector(
-        onTap:
-            () => onNavItemTapped(index), // Llamamos a la función con el índice
-        child: Row(
-          children: [
-            Icon(icon, color: Colors.white, size: 2.w), // Tamaño responsivo
-            SizedBox(width: 1.w), // Espacio entre icono y texto
-            Text(label, style: TextStyle(color: Colors.white, fontSize: 2.w)),
-          ],
+        onTap: () => onNavItemTapped(index),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Row(
+            children: [
+              Icon(icon, color: Colors.cyanAccent.shade200, size: 2.5.w),
+              SizedBox(width: 1.w),
+              Text(
+                label,
+                style: TextStyle(
+                  color: Colors.cyanAccent.shade200,
+                  fontSize: 2.w,
+                  fontWeight: FontWeight.bold,
+                  shadows: [Shadow(color: Colors.blueAccent, blurRadius: 10)],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
